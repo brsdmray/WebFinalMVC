@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BarışDemiray.Models.Calisanlar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad_Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TC_Kimlik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unvan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departman)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Personel_ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ad_Soyad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TC_Kimlik)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Unvan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Departman.Departman_ID)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Personel_ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Personel_ID })
+    </td>
+</tr>
+}
+
+</table>
